@@ -73,6 +73,25 @@ function playRound(humanChoice, computerChoice) {
     }
 
 }
+
+function playGame() {
+    for (let i = 0; i < 5; i++ ){
+        playRound(humanChoice, computerChoice);
+        console.log(`The Score is ${humanScore}:${computerScore}!`);
+        if (i === 4){
+            break;
+        }
+        humanChoice = getHumanChoice(prompt("Please enter your choice (Rock, Paper, or Scissors)"));
+        computerChoice = getComputerChoice();
+    }
+
+    if (humanScore > computerScore){
+        console.log("You are the winner!");
+    } else {
+        console.log(`You lost! The Computer is the winner!`);
+
+    }
+}
 let humanScore = 0;
 let computerScore = 0;
 
@@ -80,4 +99,5 @@ let answer = prompt("Please enter your choice (Rock, Paper, or Scissors)");
 
 let humanChoice = getHumanChoice(answer);
 let computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
+playGame();
+
